@@ -3,8 +3,19 @@ import { Filter } from './Fiter/Filter';
 import  { Contacts } from './Contacts/Contacts';
 import  ContactForm   from './ContactForm/ContactForm';
 
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchContacts } from 'redux/operations';
 
- const App = () => {
+ 
+
+const App = () => {
+
+  const dispatch = useDispatch();
+ 
+useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
     return (
       <container className="App">
